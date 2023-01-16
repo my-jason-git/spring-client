@@ -4,9 +4,9 @@ pipeline {
     maven 'maven'
   }
   environment {
-    LOGIN_URL = 'https://c115-e.us-south.containers.cloud.ibm.com'
-    LOGIN_PORT = '32370'
-    PROJECT = 'springclient-ns'
+    LOGIN_URL = 'https://api.ocpuat.pccw.com'
+    LOGIN_PORT = '6443'
+    PROJECT = 'test'
   }  
   stages {
     stage ('Initialize') {
@@ -20,7 +20,7 @@ pipeline {
     stage('Login') {
       steps {
         withCredentials(bindings: [usernamePassword(
-          		  credentialsId: 'openshift-login-api-token', 
+          		  credentialsId: 'sha256~TtOOSsM-CB_T9h6IVOPZAkw9abPlPClVx4VWuMYlI8U', 
           		  usernameVariable: 'USERNAME',
           		  passwordVariable: 'PASSWORD',
           		)]) {
